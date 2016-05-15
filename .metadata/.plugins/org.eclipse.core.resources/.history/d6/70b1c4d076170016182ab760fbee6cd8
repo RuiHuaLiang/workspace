@@ -1,0 +1,15 @@
+package lrh.booksystem;
+
+public class BookSystemTest
+{
+	public static void main ( String [ ] args )
+	{
+		//crate some books
+		Book book1 = new Book ( 101 , "Java Programming" , 65.2 , 5 );
+		Book book2 = new Book ( 102 , "Java Programming" , 65.2 , 5 );
+		Book book3 = new Book ( 103 , "Java Programming" , 65.2 , 5 );
+		Book book4 = new Book ( 104 , "Java Programming" , 65.2 , 5 );
+		Book book5 = new Book ( 105 , "Java Programming" , 65.2 , 5 );
+		
+	}
+}

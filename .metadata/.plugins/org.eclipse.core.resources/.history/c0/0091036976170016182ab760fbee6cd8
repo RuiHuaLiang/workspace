@@ -1,0 +1,9 @@
+package lrh.booksystem;
+
+public class BookSystemTest
+{
+	public static void main ( String [ ] args )
+	{
+		
+	}
+}

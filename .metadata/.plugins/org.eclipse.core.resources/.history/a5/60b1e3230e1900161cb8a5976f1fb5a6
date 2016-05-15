@@ -1,0 +1,11 @@
+package lrh.test;
+
+import java.util.List ;
+
+public class BookSystem
+{
+	private List<Book> books;
+	private Order order;
+	
+	
+}

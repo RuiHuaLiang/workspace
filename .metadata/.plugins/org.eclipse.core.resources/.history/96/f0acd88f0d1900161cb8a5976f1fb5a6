@@ -1,0 +1,10 @@
+package lrh.test;
+
+public class OrderItem
+{
+	private String bookName;
+	private int num;
+	private double price;
+	
+	
+}

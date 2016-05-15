@@ -1,0 +1,26 @@
+package lrh.iotest ;
+
+import java.io.BufferedInputStream ;
+import java.io.BufferedOutputStream ;
+import java.io.FileInputStream ;
+import java.io.FileOutputStream ;
+import java.util.Scanner ;
+
+public class Test2
+{
+	public static void main ( String [ ] args ) throws Exception
+	{
+		BufferedInputStream bis = new BufferedInputStream ( System.in ) ;
+		FileOutputStream fos = new FileOutputStream (
+				"/home/liangruihua/work/test/4.txt" ) ;
+		BufferedOutputStream bos = new BufferedOutputStream ( fos ) ;
+
+		byte [ ] b = new byte [ 10 ] ;
+		while ( true )
+		{
+			int len = bis.read ( b ) ;
+		}
+		bos.close ( ) ;
+
+	}
+}

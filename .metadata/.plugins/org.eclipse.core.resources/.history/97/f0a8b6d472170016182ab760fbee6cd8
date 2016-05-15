@@ -1,0 +1,110 @@
+package lrh.booksystem ;
+
+import java.util.Date ;
+import java.util.List ;
+
+public class Order
+{
+	private int id ;
+	private double total ;
+	private Date date ;
+	private List < OrderItem > items ;
+	public int getId ( )
+	{
+		return id ;
+	}
+	public void setId ( int id )
+	{
+		this.id = id ;
+	}
+	public double getTotal ( )
+	{
+		return total ;
+	}
+	public void setTotal ( double total )
+	{
+		this.total = total ;
+	}
+	public Date getDate ( )
+	{
+		return date ;
+	}
+	public void setDate ( Date date )
+	{
+		this.date = date ;
+	}
+	public List < OrderItem > getItems ( )
+	{
+		return items ;
+	}
+	public void setItems ( List < OrderItem > items )
+	{
+		this.items = items ;
+	}
+	@Override
+	public int hashCode ( )
+	{
+		final int prime = 31 ;
+		int result = 1 ;
+		result = prime * result
+				+ ( ( date == null ) ? 0 : date.hashCode ( ) ) ;
+		result = prime * result + id ;
+		result = prime * result
+				+ ( ( items == null ) ? 0 : items.hashCode ( ) ) ;
+		long temp ;
+		temp = Double.doubleToLongBits ( total ) ;
+		result = prime * result + ( int ) ( temp ^ ( temp >>> 32 ) ) ;
+		return result ;
+	}
+	@Override
+	public boolean equals ( Object obj )
+	{
+		if ( this == obj )
+			return true ;
+		if ( obj == null )
+			return false ;
+		if ( getClass ( ) != obj.getClass ( ) )
+			return false ;
+		Order other = ( Order ) obj ;
+		if ( date == null )
+		{
+			if ( other.date != null )
+				return false ;
+		} else if ( ! date.equals ( other.date ) )
+			return false ;
+		if ( id != other.id )
+			return false ;
+		if ( items == null )
+		{
+			if ( other.items != null )
+				return false ;
+		} else if ( ! items.equals ( other.items ) )
+			return false ;
+		if ( Double.doubleToLongBits ( total ) != Double
+				.doubleToLongBits ( other.total ) )
+			return false ;
+		return true ;
+	}
+	@Override
+	public String toString ( )
+	{
+		return "Order [id=" + id + ", total=" + total + ", date="
+				+ date + ", items=" + items + "]" ;
+	}
+	public Order ( int id , double total , Date date ,
+			List < OrderItem > items )
+	{
+		super ( ) ;
+		this.id = id ;
+		this.total = total ;
+		this.date = date ;
+		this.items = items ;
+	}
+	public Order ( )
+	{
+		super ( ) ;
+	}
+	
+	
+	
+}

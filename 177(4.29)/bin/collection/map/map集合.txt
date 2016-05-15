@@ -1,0 +1,119 @@
+1.Map接口
+  a)散列表的概念:(用空间换时间 使用索引提高查找效率)
+      把一组数据通过散列算法，将数据分散开来，存储于连续空间中（数组）,将散列
+      值作为key保存起来. 如果散列值有重复的数据放置在"散列桶"中。散列桶:是线性表
+      那么后面查找数据可以通过key直接索引对应的数据。 
+   注意:1)散列表的容积率达到75%时，效率最高。如果容积率超过75%，散列表会自动
+      扩容为原长度的2倍，然后重新散列。
+      2)散列表一般用于存储数据. 目的:快速查找。
+   b)Map接口(用于快速查找数据)
+      1)实现类: HashMap,Hashtable,Properties,TreeMap
+      2)HashMap:
+         a.原理:使用散列算法。
+         b.key-value  key和value 一一对应  
+            key必须是唯一的。value可以出现重复
+         c.API:
+           Object put(Object key,Object value) 把key,value保存在集合中
+              注意:如果key重复，那么value值就会被覆盖。
+           Object get(Object key)通过key获取对应Object对象。  
+           boolean containsKey(Object key)判断集合中是否包含key
+           boolean containsValue(Object value)判断集合中是否包含value对象。
+           boolean isEmpty();判断map集合是否为空
+           int size()获取集合的大小
+           Set keySet()将map集合中的key取出放置在set集合中。
+           Collection values() 将map集合中的value全部保存到集合中
+           Object remove(Object key) 把map集合中key对应value对象移除。并且
+               						把value对象返回。如果key在map中不存在
+               						那么返回值就是null.
+           set entrySet() 将map集合中key和value看成一个整体保存在set中。    						
+        3)Hashtable:
+           	特点： a)采用hash算法,创建hash表
+          		  b)java早期引入的API,线程安全。
+          		  c)作为key的对象，必须覆盖hashCode和equals方法。
+        4)Properties
+           a)特点: 1)继承了Hashtable
+                   2)该类可以操作文件(读取和写入)
+           b)API
+              void load(InputStream is)把IO流的输入加载到内存中。
+              String getProperty(String key)通过key获取value
+              void setProperty(String key,String value)设置key,value
+           c)Properties被用来加载配置文件  
+             	 配置文件的开发步骤:
+                  (1)创建配置文件 文件的扩展名: .properties
+                  (2)文件的内容格式: key = value (固定格式)
+                  (3)创建文件的输入流：
+                      
+    总结：
+        Collection接口: 是集合的接口
+        
+        Map接口: (key-value)键值对集合。   key不能重复 value可以重复 
+                如果key重复的 value值会发生覆盖。
+           |-HashMap(散列算法) 
+           |-TreeMap（树算法的 利用key进行排序 自然排序）
+        Map应用的场景: 主要适合于数据的查找。
+  课后练习:
+     1.实现贪吃边界问题。选做(增加障碍物)
+     2.实现MyArrayList
+     3.统计当前字符串每个字符的个数
+         "abaffafadjiojioegejoifafaj3jogegerjo"
+     4.实现坦克大战(小组)
+       
+         
+2.集合工具类(Collections)
+   a.同Arrays一样。 集合工具类(排序,二分查找,乱序,填充)方法
+   b.API
+      void sort(List list)升序排序
+      void shuffle(List list)打乱数组元素的顺序
+      void swap(List list,int i,int j) 把list集合中i和j对应位置的元素互换。
+      List synchronizedList(List list)将list集合变成线程安全的并且返回
+      				List：返回值 集合就是线程安全的。
+      Map  synchronizedMap(Map m)将map集合变成线程安全的并且返回
+      Set  synchronizedSet(Set set)将map集合变成线程安全的并且返回
+      int  binarySearch(List,Object key)二分查找，返回下标。
+              
+3. Comparable 和Comparator 比较器
+   1)Comparable特点
+       a)当前这个类是可以比较的。(类实现这个接口)
+       b)实现这个接口,表示当前这个类的实例可以比较大小，可以进行升序或
+       降序排序。
+       c)实现compareTo(Object)方法 返回值大于0  代表当前对象比Object对象
+       大   返回值小于0 代表当前对象比Object对象小。返回为0 两个对象相等。
+       d)Comparable的实现必须与equals()的结果一致。 就是如果compareTo()
+       返回0 那么equals()就是必须是true.
+   2)Comparator:比较工具
+     	 用于临时定义比较的规则。 
+          		   	       
+   总结: Comparable:1)对象与对象直接比较。 和equals类似。
+                  equals()是判断当前对象和另一个对象是否相等。
+                  compareTo()是判断当前对象和另一个对象大小 比较是hashCode
+                  2)该接口用于在类的内部实现。
+       Comparator:1)它可以是独立存在的比较算法。
+                  2)它一般被集合工具类调用，用于比较集合中的两个对象的大小。           
+                         
+ 4.集合的复制
+     a.集合复制: java默认的复制规则是浅层复制(浅拷贝)。
+     b.集合复制的方式:
+         1)clone方法：
+            clone方法是Object类中定义的。
+            clone只能拷贝本类型,不能实现类型转换。
+         
+         2)使用复制构造器
+             ArrayLis(Collection c)
+            a)list 复制list
+            
+            b)set复制list
+            
+            c)map复制map
+       总结:1)所有集合都有"复制构造器",而且他们都是浅拷贝。
+         2)复制构造器的参数是多态，可以实现不同集合间的复制。
+        注意: map接口的集合和Collection接口的集合不能完成复制。
+总结：
+   Collection和Collections区别：
+       Collection是抽象的集合概念。是一个集合的接口 实现它的有List和Set接口
+       Collections是为集合提供工具方法的工具类。
+       
+       
+     
+
+
+           

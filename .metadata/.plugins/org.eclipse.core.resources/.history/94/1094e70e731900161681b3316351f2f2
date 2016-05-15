@@ -1,0 +1,12 @@
+package lrh.test;
+
+import java.util.Date ;
+import java.util.List ;
+
+public class Order
+{
+	private int id;
+	private List<OrderItem> items;
+	private Order order;
+	private Date date;
+}

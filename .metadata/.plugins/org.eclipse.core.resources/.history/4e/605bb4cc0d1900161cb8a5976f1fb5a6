@@ -1,0 +1,14 @@
+package lrh.test;
+
+import java.io.Serializable ;
+import java.util.List ;
+
+public class Order implements Serializable
+{
+	private int id;
+	private List<OrderItem> items;
+	private double total;
+	
+	
+	
+}

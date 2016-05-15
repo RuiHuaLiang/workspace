@@ -1,0 +1,8 @@
+package lrh.test;
+
+import java.io.Serializable ;
+
+public class Order implements Serializable
+{
+	
+}

@@ -1,0 +1,12 @@
+package lrh.test;
+
+import java.util.List ;
+
+public class Test
+{
+	public static void main ( String [ ] args )
+	{
+		List<Book> books = new ArrayList<Book>();
+		books.add ( New Book(101,"C",45 , ) )
+	}
+}

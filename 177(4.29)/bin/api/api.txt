@@ -1,0 +1,231 @@
+Java API工具：
+ Object,String,StrinBuffered,
+  正则表达式，Date,SimpleDateFomart
+  装箱 拆箱
+  
+1.Object类
+ a)OOP:一切皆对象    Object:所有类的根类。
+ b)Object的子类 需要重写hashCode,equals,toString 方法。
+ c)三个方法重写详解
+    (1)toString: Object类中的toString方法的打印的格式：全限定名@hashCode
+                 重写之后的格式: 返回对象的唯一标识。(和实际生活相同即可)
+         注意:输出引用和输出引用调用toString是等价的。                       
+ 		 输出 stu 等价于 stu.toString()
+    (2)equals()方法： Object中的equals()方法： 比较内存中的两个对象的地址。
+                 重写之后：比较两个对象的内容是否相等。
+       a)重写规则：
+         1)自反性: 如果对象x是非空，那么x.equals(x)返回值为true.
+         2)对称性: 如果x,y是非空对象,同时x.equals(y)返回值为true,那么
+            y.equals(x)返回值也为true;
+         3)传递性: 如果对象x,y,z是非空对象，同时，x.equals(y) 返回值为true
+            y.equals(z)返回值为true.那么x.equals(z)返回值也为true.
+         4)一致性:对于任何非空的引用x和y,多次调用x.equals(y)始终返回true,
+            或者始终返回false,前提是对象的上的equals比较所用的对象信息没有被改变。   
+         5)任何非空引用x,那么x.equals(null)始终返回false  
+    (3)hashCode  
+        hashCode码要唯一。重写前: 地址--->hash码
+                                             重写之后: 唯一标识作为hash码。
+           重写hashCode方法的要求：                                     
+         1)重写了equals方法,必须重写hashCode方法。
+         2)如果equals方法结果为true,那么hashCode码也必须一致。
+                  反之已然。
+         3)当一个对象产生之后，那么它的hashCode码就不能改变。
+         4)hashCode码一般采用oid. 和数据库唯一约束的字段同步。
+         
+2.String类:字符串  char[],String,StringBuilder,StringBuffer用来表达字符串
+   a)String类的特点：
+      (1)String不能被继承的。final修饰类String.
+      (2)String的内部原理:不可变的char[]
+      (3)字符串的字面量也是String类的实例对象。
+      (4)String设计原则：字符串的对象内容不可变。(如果要变必须创建新的String对象) 
+      (5)在创建实例化过程中，如果它的实例是字面量，而且字面的结构是一致的。
+         那么系统就会优化，让其在内存中只存在一个对象。
+      (6)String重写了hascode,equals,toString方法。   
+   b)String API 
+     注意:如果String的方法返回值是String类型那么就会产生一个新的String对象
+        toString()方法除外。   
+     String toLowerCase() 把大写转换成小写
+     String toUpperCase() 把小写转换成大写
+     int    length()  字符串长度
+     char   charAt(int index) 获取对应位置上的字符
+                     index:从0开始 到 length()-1结束
+     int indexOf(String str); 获取str在字符串中所在的位置。如果没有
+         					   查找到str的位置返回-1.
+     int indexOf(String str, int fromIndex); 同上，但是fromIndex可以指定
+       						 查找的起始位置    
+     int lastIndexOf(String str) 从字符串的末尾向头部查找。如果没有查找到
+                                                   返回-1 
+     
+     String substring(int index) 从index开始到字符串的末尾截取子串。
+     String substring(int index,int length) 
+     				截取子串从index开始到end结束的子串。
+     			
+     String concat(Strig) 连接字符串  和+等价
+     char[] toCharArray() 把字符串转换成字符数组
+     String String(char[]) 把字符串数组转换成字符串。
+     
+     boolean match(String regex) 字符串匹配正则表达式。
+     String[] split(String regex) 按照正则切割字符串。 
+     String replaceAll(String regex,String str); 替换字符中满足regex正则
+           条件的字符串  使用str来替换。
+     String trim() 去掉空白(空格,制表符\t,换行符\n)的方法。    
+     boolean startWith(String prefix)  判断字符串的起始部分。     
+     boolean equalsIgnoreCase(String anotherString); 
+     				比较两个字符串但忽略大小写。
+   
+   案例: 1.将 TOM:89|JERRY:90|TONY:78 拆分成(可以使用字符串的 split()方法) 
+   		TOM→89
+   		JERRY→90 
+   		TONY→78
+       2.自定义方法 addMoney,摸拟手机充值的过程, 
+       	在方法中输入“充值卡卡号#充值卡密码#充值的手机号码”字符串, 
+       	从中取出要充值的手机号码,向用户确认是否要充值,输入 1 确定, 
+       	输入其他任意健放弃,方法返回充值是否成功,在 Main()方法中输出充值结果。
+    
+3.正则表达式： 
+  a)概念: 一个字符串 用来指定的字符来限制字符串内容的表达式。
+  b)正则表达式内容:
+     1)普通的字符串:"bc"
+     2)[]: 当前字符串可以出现字符。
+     3){}: 出现的次数 
+     4)-:  从起始位置到结束位置之间的字符都可以取
+     5)^: 起始位置
+     6)$: 结束位置
+     7){s,e}:出现的次数在s到e之间。
+     8) \d 代表[0-9]
+     9) \D 非数字
+     10) \w:[a-zA-Z0-9_]
+     11) \W: [^\w]   
+  案例: 用户名6-20
+       ^[a-zA-Z][\w_]{5,19}$
+            邮箱:www@163.com   www@gmail.com.cn
+       ^[a-zA-Z]\w{5,19}@\w{2,5}.[a-zA-Z]{2,4}[.]?[a-z]{2,4}?$
+            手机号码 1 34578 0123456789 
+       ^[1][34578]\d{9}$ 
+            密码: 1:数字[5,10] 低  2:数字&字母 中  3.数字字母_#*
+     12) *: 出现多次或者不出现
+     13) ?: 出现一次或者不出现
+     14) +: 出现一次或多次 
+      
+ 案例:注册页面
+       
+        
+4.StringBuffer,StringBuilder类
+  a)特性：
+     1) 被final修饰  不能被继承
+     2) 都是动态的字符序列(字符串)。  采用了动态数组的算法，
+     	来实现动态字符的存储。
+            即StringBuffer,StringBuilder的内容是可变的。
+     3)内部原理: char[] 可变的
+     4)内存对象内容是可变。            
+  b)API(StringBuilder)
+  	 StringBuilder append(String str)将字符串追加到StringBuilder中。
+  	 StringBuilder insert(int offset,String str) 将字符串插入到指定位置
+  	      offset:从0开始
+     StringBuilder delete(int start,int end) 删除从strat开始到end之间的字符串
+       不包括end.
+    
+  c.StringBuilder与String之间的转换
+     a).将String转换成StringBuilder 
+	   StringBuilder sb3 = new StringBuilder("abc");
+		
+     b).StringBuilder转换成String
+	   String s = sb3.toString();             
+面试题:
+  String str ="abc";
+  String str1 ="bcd";
+  String str3 = new String("efg");
+  String str2 = str+st1+str3;
+  
+  产生了多少个对象？
+    str2 = new StringBuilder().append("abc")
+    						  .append("bcd")
+    						  .append("efg").toString();
+
+5.总结：String StringBuilder StringBuffer
+  1)StringBuilder和StringBuffer之间关系
+     相同点:a)都是char[] 而且是可变的。
+         b)API基本相同。
+    不同点: StringBuffer:  jdk 1.0时已经引入  线程安全   效率低
+          StringBuilder:  jdk 5.0引入     非线程安全   效率高            
+   
+  2)String 和StringBuilder、StringBuffer区别
+    String:采用定长数组   final
+    StringBuilder,StringBuffer 采用变长数组 
+    
+6.包装类
+   a)概念: 使用OOP思想将简单数据类型封装成类
+   b)特点：
+      1)包装类是将简单数据类型封装成类。
+      注意:1)简单数据类型不是对象 所以不是Object的子类。
+        2)包装类和简单数据类型比较。 简单数据类型效率更高。
+        int i = 10;
+        Object o  = i;
+        jdk5.0之前是错误的。没有Integer
+        jdk5.0以后正确
+          int -->Integer ---> Object
+     2)装箱(boxing) 把简单类型 转换成对应的包装类
+        Integer i  = 10 ;
+     3)拆箱(unboxing)把包装类型转换成简单类型 
+        int intValue() 拆箱的方法
+        int  n = i1; //等价于 i1.intValue();
+     4)包装类都被final修饰了。
+     5)包装类都重写了hashCode,equals,toString
+   c)API (Integer)  
+     String Integer.toBinaryString(Integer i); 将整数转换成二进制
+     int  intValue(); 转换成int类型
+     String  Integer.toString(int i);将int类型转换成String类型
+   d)包装类  
+      简单数据类型                 包装类
+      boolean           Boolean
+      byte              Byte
+      short             Short
+      char              Character
+      int               Integer
+      long              Long
+      float             Float
+      double            Double
+    总结: 包装类采用了和String相同的设计思路: (对象内容不可变) 所以包装类
+        中的成员都是使用final修饰了。
+   
+7.日期类和日历类  日期格式化
+   a.long类型: 时间可以使用它表示。 单位 毫秒
+      long System.currentTimeMillis()  
+      			获取的计算机元年到当前时间所消耗的时间。
+   b.Date 时间类
+     (1)包: java.util.Date
+     (2)API
+        int getYear(); 获取的距离1900至今的间隔
+        int getMonth(); 获取月份  从0开始
+        int getDay() 星期几
+        int getDate() 获取日
+        int getHours() 小时
+        int getMinutes() 分钟
+        int getSeconds() 秒
+  c.Calendar 日历类 (太阳历 月亮历)
+       int get(int); 该方法获取日历的年月日 时分秒    
+                 参数：需要调用Calendar中的常量
+                Calendar.YEAR 年
+                Calendar.MONTH 月
+                Calendar.DAY 日
+       void setTime(Date d) 将Date转换成Calendar
+       Date getTime();  将Calendar转换成Date
+  d.日期格式化 (字符串和日期之间的转换)
+     (1)日期格式化：DateFormat (包:java.text)           
+                     |-SimpleDateFormat 
+     (2)字符串转换成日期类
+        a)指定字符串格式
+          SimpleDateFormat sd = 
+          	new SimpleDateFormat("yyyy年MM月dd日hh:mm:ss");
+		b)调用方法转换成（字符串--->Date）
+		 Date d = sd.parse(str);
+     (3)日期类转换成字符串
+        a.指定转换个格式
+		 SimpleDateFormat sd1 = new SimpleDateFormat("MM/dd/yyyy");
+		 
+		b.将日期转换成字符串
+		  String rs = sd1.format(d);
+   
+   
+   
+   

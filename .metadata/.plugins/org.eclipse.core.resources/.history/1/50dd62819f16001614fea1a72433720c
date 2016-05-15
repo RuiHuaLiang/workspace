@@ -1,0 +1,30 @@
+package homework.book;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BookTest {
+
+	public static void main(String[] args) {
+		//1.
+		//a.
+		List<Book> books = new ArrayList<Book>();
+		books.add(new Book(1001,"java设计模式",60,3));
+		books.add(new Book(2001,"数据结构",30,10));
+		books.add(new Book(5001,"�ҵ��ֵܽ�˳��",30,5));
+		books.add(new Book(8001,"Javaѧϰ�ʼ�",65,2));
+		
+		//b.����BookSystem����
+		BookSystem system  = new BookSystem(books);
+		
+		//2.��ӡͼ�����Ϣ
+		system.printBookInfo();
+		
+		//3.�����鼮
+		system.shopping();
+		
+		//4.��ӡ����
+		system.printDetail();
+	}
+
+}

@@ -1,0 +1,85 @@
+异常(Exception)
+  1)概念: 方法(行为)在执行过程中由于某种原因而不能达到正常目的，这样的现象
+    称为异常。
+  2)异常的处理方式
+     a)抛异常:异常在方法中发生，并不处理，而是将异常传递出去。
+        throws关键字用来抛异常。
+            注意: 1.一般都写在参数列表之后
+            2.可以抛多个异常，异常与异常之间使用逗号隔开。
+     b)捕捉异常: 异常在方法中发生，立即对其异常采取处理。
+            语法:
+           try{
+              //语句块 (有可能发生异常)
+           }catch(异常类名 变量名){
+              //异常的处理
+           }catch(异常类名 变量名){
+              //异常的处理
+           }finally{
+              //代码块
+           }
+         1)catch块中需要捕捉异常，而且捕捉异常按照从小到大的顺序排列,不能倒置。
+           如果捕捉的异常存在继承关系，优先捕捉小异常，在捕捉大异常。如果捕捉的异常
+           不存在继承关系，那么捕捉也就没有顺序。
+         2)try只能有一个。catch可以没有, finally也可以没有(catch和finally必须
+         有一个出现)
+         try{
+            //代码
+         }finally{
+           
+         }
+        3)如果在捕捉异常过程中，有多个catch块,按照从上向下的顺序执行，如果
+        有一个catch块被执行，其他catch块就不会被执行。
+        4)finally总是会被执行。
+     
+     抛异常和捕捉异常直接区别:
+        捕捉异常:当异常发生之后可以找到替代方案继续完成当前任务。
+        抛异常: 当异常发生之后没有办法找到替代方案。 
+   3)异常的开发步骤
+     a)产生异常
+             语法:
+        throw new 异常类名(异常的消息);
+     b)抛出异常/捕捉异常     
+        try..catch 捕捉异常
+        throws 抛出异常   
+   注意： 1)在方法中，如果有一句代码发生了异常，那么该语句之后代码就不会被执行。
+        2)如果使用try{}catch处理异常。位于try块中代码发生异常之后，在try块中
+          而且位于当前代码以后的代码就不会被执行。
+        3)如果使用throws处理异常。当前代码执行过程中发生异常之后
+       位于异常代码之后的代码都不会被执行。
+ 4.异常体系
+     Throwable(异常和错误的父类)
+       |-Error 错误：不可逆的，不可恢复的现象
+          ThreadDeath,IOError,OutOfMemoryError,
+          StackOverflowError, UnknownError  
+       |-Exception 异常(根类): 由于软件设计的缺陷，导致软件无法得到正确结果
+        					 但是这种现象时可以恢复的。  
+         ClassNotFoundException,FileNotFoundException,IOException
+         SQLException,ParseException
+            |- check异常(编译时异常) 
+                	如果异常产生了，就必须处理。如果不处理会编译失败	 
+            |- 非check异常(运行时异常)
+                            如果异常产生了，可处理也可以不处理。不会影响编译效果。
+             	到该处理时在处理。
+               NullPointerException,RuntimeException,
+               ArrayIndexOutofBoundsException,ClassCastException
+                
+ 5.自定义异常
+    a)目的:能够给用户准确的提示信息，改善用户体验。
+    b)如何自定义异常?
+         1)继承异常父类(Exception,RuntimeException)
+         2)提供对应的构造器            
+         3)调用父类对应的构造器   
+            
+            
+        
+         
+           
+         
+         
+         
+         
+           
+           
+           
+           
+         

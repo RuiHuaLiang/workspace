@@ -1,0 +1,14 @@
+package lrh.booksystem;
+
+import java.util.Date ;
+import java.util.List ;
+
+public class Order
+{
+	private int id;
+	private double total;
+	private Date date;
+	private List<OrderItem> items;
+	
+	
+}

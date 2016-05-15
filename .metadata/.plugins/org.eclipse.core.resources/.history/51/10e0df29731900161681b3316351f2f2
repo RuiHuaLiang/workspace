@@ -1,0 +1,8 @@
+package lrh.test;
+
+public class BookSystem
+{
+	private List<Book> books;
+	private Order order;
+	
+}

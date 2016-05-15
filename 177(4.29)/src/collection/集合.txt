@@ -1,0 +1,139 @@
+1.集合(Collection)
+  a.概念: 在数学意义上，多个数据放置在一起建立的数据模型。这些
+                                 数据的类型可以不同。 
+                  在软件的定义:将一堆数据放置在一个空间中存储。把整个空间
+                                     称为集合
+  b.Collection  接口  是集合的根。
+      1)Collection 包含的子接口和实现类
+         Collection
+           |-List接口(线性表接口) 线性表:顺序表、链表
+              |-ArrayList(顺序表)
+              |-LinkedList(链表)
+              |-Vector (向量表)
+                 |-Stack(栈)
+           |-Set接口 (去掉重复的数据) 无序的
+              |-HashSet:使用hash算法完成去重复表。
+              |-TreeSet:使用树算法完成去重复的表。
+           |-Queue(队列)
+      2)API
+        void clear() 清空集合
+        int size() 获取集合元素个数
+        boolean add(Object obj) 添加obj到集合中
+        boolean contains(Object o) 判断对象是否包含在集合中
+        boolean containsAll(Collection c) 判断集合c是否被包含于另一个集合中
+        boolean remove(Object obj) 将集合中的对象obj移除。
+        boolean removeAll(Collection c) 将集合c中包含的元素从另一个集合中移除。  
+        boolean retainAll(Collection c) 求交集
+        Object[] toArray() 将集合转换成数组
+  C.List接口 (线性表): 有序的 可以重复的，可以包含多个null 值
+      1)List接口实现类: ArrayList,LinkedList
+      2)ArrayList特点
+          a)顺序表  空间连续   查找方便 
+          b)集合默认的空间为10
+          c)扩容的长度是原长度的1.5倍。
+          d)内部的原理：变长数组
+          e)是非线程安全。
+          f)在集合遍历过程中不能使用ArrayList本身的方法删除或添加元素。
+            
+      3)LinkedList特点：
+           a)链表  删除,插入操作 方便
+           b)集合默认的空间为0
+           c)内部原理: 双链表
+           e)是非线程安全。
+           
+    案例:贪吃蛇
+      1.游戏面板
+      2.蛇 
+      3.豆子
+   ----------------------
+   |					|
+   |	##				|
+   |	#				|
+   |  # #				|
+   |					|   
+   |					|  
+   |					|
+   ------------------------
+      4)API:(ArrayList)
+         int size() 获取集合的大小。
+         boolean add(Object obj) 添加对象到集合中
+         void clear() 清空集合
+         Object get(int index) 根据index索引获取集合中的元素。
+                    int:从0开始。
+                    Object:集合中保存的对象。
+         Object remove(int index) 根据index索引移除集合中
+                                                          的元素
+                    int:索引 从0开始
+                    Object:移除的对象 
+          Object set(int index,Object obj)更新index索引位置
+              							  的对象. 
+              		int index:索引
+              		Object obj:用来更新的对象。
+              		Object:被替换的对象。
+         Iterator iterator(); 获取当前集合的迭代器   						           
+                    
+   d)迭代器 (遍历集合)
+     1)迭代器概念: 就是一个游标记录着集合中元素的信息。
+     2)是一种快速遍历集合的算法。
+     3)集合可以调用iterator()方法获取迭代器
+     4)是一个带有游标的线性表，用来记录集合元素的地址。  
+     5)API
+        boolean  hasNext(); 判断游标的下一个元素是否存在
+                         如果存在，返回true.否则返回false.  
+        Object next(); 获取当前游标所在位置的下一个对象,
+        		并且将游标下移。               
+         
+    e)补充List接口的实现类:Vector(向量)
+    	  1)顺序表.
+    	  2)每次扩容在原长度上增加一倍。
+    	  3)集合默认的空间为10
+    	  4)内部原理：变长数组
+    	  5)vector是线程安全。
+    	  6)在集合遍历过程中不能使用Vector本身的方法删除或添加元素
+    
+    f)Set接口
+        1)特点: a)类似于数学集合,无顺序,不可重复
+                b)只能有一个null值
+        2)实现类:
+             a)HashSet
+               (1)特点: a)采用了hash算法的set,相当于HashMap的key.
+                        b)默认的容量是16，加载因子是75%。
+              			c)非线程安全。
+              	
+               (2)API:
+                   int size()获取集合长度
+                   boolean add(Object obj)添加对象到集合中，并且返回
+                   					是否添加成功
+               	   boolean contains(Object ob) 判断对象是否存在与集合中
+               	         		并且返回结果。
+               	   boolean isEmpty() 判断当前集合是否为空
+               	   Iterator iterator();获取集合的迭代器
+               	   boolean remove(Object obj)移除集合中包含的对象。
+               	   							并且返回是否移除成功
+               	             			
+             b)TreeSet  
+                 1)特点:
+                    a)默认的容量是0
+                    b)采用的是二叉树的算法
+                    c)采用的是TreeMap的Key
+                    d)按照自然排序存放对象的.(升序)
+          总结:Collection(集合)
+             |-List接口 有序 可重复 多个null
+                |-ArrayList:有序的 查找效率高(顺序表)
+                |-LinkedList链表(双链表) 有序的     删除和插入效率高  
+                |-Vector  有序  线程安全的
+             |-Set接口  无序  不可重复   一个null 
+                |-HashSet 无序  不可重复
+                |-TreeSet 有序  不可重复
+               
+                
+               
+             
+                  
+        
+       
+                
+        
+        
+          
+                  

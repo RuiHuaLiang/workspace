@@ -1,0 +1,24 @@
+package lrh.iotest;
+
+import java.io.BufferedInputStream ;
+import java.io.BufferedOutputStream ;
+import java.io.FileInputStream ;
+import java.io.FileNotFoundException ;
+import java.io.FileOutputStream ;
+
+public class Test
+{
+	public static void main ( String [ ] args ) throws FileNotFoundException
+	{
+		FileInputStream fis = new FileInputStream ( "/home/liangruihua/work/test/1.txt");
+		BufferedInputStream bis = new BufferedInputStream(fis);
+		
+		FileOutputStream fos = new FileOutputStream("/home/liangruihua/work/test/2.txt");
+		BufferedOutputStream bos = new BufferedOutputStream(fos);
+		
+		while(true)
+		{
+			
+		}
+	}
+}

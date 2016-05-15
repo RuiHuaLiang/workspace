@@ -1,0 +1,11 @@
+package lrh.iotest;
+
+import java.io.FileInputStream ;
+
+public class Test
+{
+	public static void main ( String [ ] args )
+	{
+		FileInputStream fis = new FileInputStream ( "/home/liangruihua/");
+	}
+}
