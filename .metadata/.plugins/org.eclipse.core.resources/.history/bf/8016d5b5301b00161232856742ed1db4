@@ -1,0 +1,11 @@
+package lrh.test;
+
+import java.io.Serializable ;
+import java.util.List ;
+
+public class Order implements Serializable
+{
+	private List<Book> books;
+	private 
+	
+}

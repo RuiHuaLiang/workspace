@@ -10,7 +10,6 @@ public class BookSystem
 	private List < Book > books ;
 	private Order order ;
 	private int num ;
-	private double totla ;
 
 	public BookSystem ( List < Book > books )
 	{
@@ -18,60 +17,66 @@ public class BookSystem
 		this.books = books ;
 	}
 
+	// show the book info
 	public void showBookInfo ( )
 	{
 		System.out.println ( "\t\t\tBook Info" ) ;
-		System.out.println ( "\t\t\tid\t\tname\t\t\tprice\t\tstorage" ) ;
+		System.out.println ( "\tid\tname\t\t\t\tprice\t\tstorage" ) ;
 		for ( Book book : this.books )
 		{
-			System.out.println ( "\t\t\t" + book.getId ( ) + "\t\t"
-					+ book.getName ( ) + "\t\t\t"
-					+ book.getPrice ( ) + "\t\t"
-					+ book.getStorage ( ) ) ;
+			System.out.println ( "\t" + book.getId ( ) + "\t"
+					+ book.getName ( ) + "\t\t\t\t"
+					+ book.getPrice ( ) + "t\t"
+					+ book.getStaorage ( ) ) ;
 		}
 	}
 
+	// shopping
 	public void shopping ( )
 	{
+		// create Order
 		createOrder ( ) ;
 
 		int index = 0 ;
 		while ( index < 3 )
 		{
+			// choose book
 			Book book = chooseBook ( ) ;
 			OrderItem item = new OrderItem ( book.getName ( ) ,
 					book.getPrice ( ) , this.num ) ;
-
 			this.order.getItems ( ).add ( item ) ;
-			index ++;
+			index ++ ;
 		}
 
+		double total = 0.0 ;
 		for ( OrderItem item : this.order.getItems ( ) )
 		{
-			this.totla += item.getPrice ( ) * item.getNum ( ) ;
+			total += item.getPrice ( ) * item.getNum ( ) ;
 		}
+		this.order.setTotal ( total ) ;
+
 	}
 
-	public void showInfo ( )
+	// show order info
+	public void showOrderInfo ( )
 	{
-		System.out.println ( "bookName\t\tprice\t\tnum" ) ;
+		System.out.println ( "\tbookName\t\tprice\t\tnumbwe" ) ;
 		for ( OrderItem item : this.order.getItems ( ) )
 		{
-			System.out.println ( item.getBookName ( ) + "\t\t"
-					+ item.getPrice ( ) + "\t\t"
+			System.out.println ( "\t" + item.getBookName ( )
+					+ "\t\t" + item.getPrice ( ) + "\t\t"
 					+ item.getNum ( ) ) ;
 		}
-		System.out.println ( this.totla ) ;
+		System.out.println ( "total price:"+this.order.getTotal ( ) ) ;
 	}
 
 	private Book chooseBook ( )
 	{
-
-		System.out.println ( "choose your book id :" ) ;
+		System.out.println ( "choose your book id:" ) ;
 		Scanner sc = new Scanner ( System.in ) ;
 		int id = sc.nextInt ( ) ;
 
-		System.out.println ( "input the number:" ) ;
+		System.out.println ( "input the number of book:" ) ;
 		Scanner sc2 = new Scanner ( System.in ) ;
 		this.num = sc2.nextInt ( ) ;
 
@@ -90,7 +95,7 @@ public class BookSystem
 	private void createOrder ( )
 	{
 		this.order = new Order ( 2016 ,
-				new ArrayList < OrderItem > ( ) , new Date ( ) ) ;
+				new ArrayList < OrderItem > ( ) , new Date ( ) ,
+				0.0 ) ;
 	}
-
 }

@@ -1,36 +1,49 @@
-package lrh.test;
+package lrh.test ;
 
 import java.io.Serializable ;
 
 public class OrderItem implements Serializable
 {
-	private String bookName;
-	private double price;
-	private int num;
+	private String bookName ;
+	private double price ;
+	private int num ;
+
 	public String getBookName ( )
 	{
 		return bookName ;
 	}
+
 	public void setBookName ( String bookName )
 	{
 		this.bookName = bookName ;
 	}
+
 	public double getPrice ( )
 	{
 		return price ;
 	}
+
 	public void setPrice ( double price )
 	{
 		this.price = price ;
 	}
+
 	public int getNum ( )
 	{
 		return num ;
 	}
+
 	public void setNum ( int num )
 	{
 		this.num = num ;
 	}
+
+	public OrderItem ( )
+	{
+		super ( ) ;
+		// TODO Auto-generated constructor stub
+	}
+
 	public OrderItem ( String bookName , double price , int num )
 	{
 		super ( ) ;
@@ -38,17 +51,7 @@ public class OrderItem implements Serializable
 		this.price = price ;
 		this.num = num ;
 	}
-	public OrderItem ( )
-	{
-		super ( ) ;
-		// TODO Auto-generated constructor stub
-	}
-	@Override
-	public String toString ( )
-	{
-		return "OrderItem [bookName=" + bookName + ", price=" + price
-				+ ", num=" + num + "]" ;
-	}
+
 	@Override
 	public int hashCode ( )
 	{
@@ -64,29 +67,26 @@ public class OrderItem implements Serializable
 		result = prime * result + ( int ) ( temp ^ ( temp >>> 32 ) ) ;
 		return result ;
 	}
+
 	@Override
 	public boolean equals ( Object obj )
 	{
-		if ( this == obj )
-			return true ;
-		if ( obj == null )
-			return false ;
-		if ( getClass ( ) != obj.getClass ( ) )
-			return false ;
-		OrderItem other = ( OrderItem ) obj ;
-		if ( bookName == null )
+		if ( obj instanceof OrderItem )
 		{
-			if ( other.bookName != null )
-				return false ;
-		} else if ( ! bookName.equals ( other.bookName ) )
-			return false ;
-		if ( num != other.num )
-			return false ;
-		if ( Double.doubleToLongBits ( price ) != Double
-				.doubleToLongBits ( other.price ) )
-			return false ;
-		return true ;
+			if ( this.bookName.equals ( ( ( OrderItem ) obj )
+					.getBookName ( ) ) )
+			{
+				return true;
+			}
+		}
+		return false ;
 	}
-	
-	
+
+	@Override
+	public String toString ( )
+	{
+		return "OrderItem [bookName=" + bookName + ", price=" + price
+				+ ", num=" + num + "]" ;
+	}
+
 }

@@ -9,8 +9,7 @@ public class Order implements Serializable
 	private int id;
 	private List<OrderItem> items;
 	private Date date;
-	
-	
+	private double total;
 	public int getId ( )
 	{
 		return id ;
@@ -35,13 +34,26 @@ public class Order implements Serializable
 	{
 		this.date = date ;
 	}
-	public Order ( int id , List < OrderItem > items , Date date )
+	public double getTotal ( )
+	{
+		return total ;
+	}
+	public void setTotal ( double total )
+	{
+		this.total = total ;
+	}
+	
+	
+	public Order ( int id , List < OrderItem > items , Date date ,
+			double total )
 	{
 		super ( ) ;
 		this.id = id ;
 		this.items = items ;
 		this.date = date ;
+		this.total = total ;
 	}
+	
 	public Order ( )
 	{
 		super ( ) ;
@@ -57,39 +69,30 @@ public class Order implements Serializable
 		result = prime * result + id ;
 		result = prime * result
 				+ ( ( items == null ) ? 0 : items.hashCode ( ) ) ;
+		long temp ;
+		temp = Double.doubleToLongBits ( total ) ;
+		result = prime * result + ( int ) ( temp ^ ( temp >>> 32 ) ) ;
 		return result ;
 	}
 	@Override
 	public boolean equals ( Object obj )
 	{
-		if ( this == obj )
-			return true ;
-		if ( obj == null )
-			return false ;
-		if ( getClass ( ) != obj.getClass ( ) )
-			return false ;
-		Order other = ( Order ) obj ;
-		if ( date == null )
+		if(obj instanceof Order)
 		{
-			if ( other.date != null )
-				return false ;
-		} else if ( ! date.equals ( other.date ) )
-			return false ;
-		if ( id != other.id )
-			return false ;
-		if ( items == null )
-		{
-			if ( other.items != null )
-				return false ;
-		} else if ( ! items.equals ( other.items ) )
-			return false ;
-		return true ;
+			if(this.id == ((Order)obj).getId ( ))
+			{
+				return true;
+			}
+		}
+		return false ;
 	}
 	@Override
 	public String toString ( )
 	{
 		return "Order [id=" + id + ", items=" + items + ", date="
-				+ date + "]" ;
-	}	
+				+ date + ", total=" + total + "]" ;
+	}
+	
+	
 	
 }

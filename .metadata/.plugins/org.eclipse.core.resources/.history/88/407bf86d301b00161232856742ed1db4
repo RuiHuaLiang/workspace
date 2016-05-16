@@ -1,0 +1,10 @@
+package lrh.test;
+
+import java.io.Serializable ;
+
+public class OrderItem implements Serializable
+{
+	private String bookName;
+	private double price;
+	private 
+}
