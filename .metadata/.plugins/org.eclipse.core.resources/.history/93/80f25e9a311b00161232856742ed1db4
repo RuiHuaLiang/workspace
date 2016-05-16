@@ -1,0 +1,27 @@
+package lrh.test ;
+
+import java.util.List ;
+
+public class BookSystem
+{
+	private List < Book > books ;
+	private Order order ;
+	private int num ;
+
+	public BookSystem ( List < Book > books )
+	{
+		super ( ) ;
+		this.books = books ;
+	}
+
+	// show the book info
+	public void showBookInfo ( )
+	{
+		System.out.println ("\t\t\tBook Info") ;
+		System.out.println ("\tid\tname\t\t\t\tprice\t\tstorage") ;
+		for(Book book : this.books)
+		{
+			
+		}
+	}
+}

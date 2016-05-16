@@ -1,0 +1,11 @@
+package lrh.test;
+
+public class Test
+{
+	public static void main ( String [ ] args )
+	{
+		//create some book
+		
+		
+	}
+}

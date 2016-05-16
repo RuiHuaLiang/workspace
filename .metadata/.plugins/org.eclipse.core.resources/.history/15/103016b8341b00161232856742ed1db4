@@ -1,0 +1,101 @@
+package lrh.test ;
+
+import java.util.ArrayList ;
+import java.util.Date ;
+import java.util.List ;
+import java.util.Scanner ;
+
+public class BookSystem
+{
+	private List < Book > books ;
+	private Order order ;
+	private int num ;
+
+	public BookSystem ( List < Book > books )
+	{
+		super ( ) ;
+		this.books = books ;
+	}
+
+	// show the book info
+	public void showBookInfo ( )
+	{
+		System.out.println ( "\t\t\tBook Info" ) ;
+		System.out.println ( "\tid\tname\t\t\t\tprice\t\tstorage" ) ;
+		for ( Book book : this.books )
+		{
+			System.out.println ( "\t" + book.getId ( ) + "\t"
+					+ book.getName ( ) + "\t\t\t\t"
+					+ book.getPrice ( ) + "\t\t"
+					+ book.getStaorage ( ) ) ;
+		}
+	}
+
+	// shopping
+	public void shopping ( )
+	{
+		// create Order
+		createOrder ( ) ;
+
+		int index = 0 ;
+		while ( index < 3 )
+		{
+			// choose book
+			Book book = chooseBook ( ) ;
+			OrderItem item = new OrderItem ( book.getName ( ) ,
+					book.getPrice ( ) , this.num ) ;
+			this.order.getItems ( ).add ( item ) ;
+			index ++ ;
+		}
+
+		double total = 0.0 ;
+		for ( OrderItem item : this.order.getItems ( ) )
+		{
+			total += item.getPrice ( ) * item.getNum ( ) ;
+		}
+		this.order.setTotal ( total ) ;
+
+	}
+
+	// show order info
+	public void showOrderInfo ( )
+	{
+		System.out.println ( "\tbookName\t\tprice\t\tnumbwe" ) ;
+		for ( OrderItem item : this.order.getItems ( ) )
+		{
+			System.out.println ( "\t" + item.getBookName ( )
+					+ "\t\t" + item.getPrice ( ) + "\t\t"
+					+ item.getNum ( ) ) ;
+		}
+		System.out.println ( this.order.getTotal ( ) ) ;
+	}
+
+	private Book chooseBook ( )
+	{
+		System.out.println ( "choose your book id:" ) ;
+		Scanner sc = new Scanner ( System.in ) ;
+		int id = sc.nextInt ( ) ;
+
+		System.out.println ( "input the number of book:" ) ;
+		Scanner sc2 = new Scanner ( System.in ) ;
+		this.num = sc2.nextInt ( ) ;
+
+		for ( int i = 0 ; i < this.books.size ( ) ; i ++ )
+		{
+			Book book = this.books.get ( i ) ;
+			if ( book.getId ( ) == id )
+			{
+				return book ;
+			}
+		}
+
+		return null ;
+	}
+
+	private void createOrder ( )
+	{
+		this.order = new Order ( 2016 ,
+				new ArrayList < OrderItem > ( ) , new Date ( ) ,
+				0.0 ) ;
+	}
+}
