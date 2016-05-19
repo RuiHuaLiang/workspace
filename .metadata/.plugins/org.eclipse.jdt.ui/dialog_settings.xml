@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="0" key="org.eclipse.jdt.uiformatter_page.white_space_tab_page.node"/>
-	<item value="197" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.inner"/>
 	<item value="199" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.option"/>
+	<item value="197" key="org.eclipse.jdt.uiformatter_page.white_space.java_view.inner"/>
 	<item value="3" key="org.eclipse.jdt.uiformatter_page.modify_dialog_tab_page.last_focus_index"/>
 	<item value="669" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_height"/>
 	<item value="146" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_x"/>
-	<item value="1" key="org.eclipse.jdt.uiformatter_page.line_wrapping_tab_page.last_category_index"/>
-	<item value="0" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.last_focus"/>
-	<item value="1277" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
 	<item value="66" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_y"/>
+	<item value="1277" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.preferred_width"/>
+	<item value="0" key="org.eclipse.jdt.uiformatter_pagemodify_dialog.last_focus"/>
+	<item value="1" key="org.eclipse.jdt.uiformatter_page.line_wrapping_tab_page.last_category_index"/>
 	<section name="DialogBounds_OverrideMethodDialog">
 		<item value="641" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
-		<item value="363" key="DIALOG_X_ORIGIN"/>
 		<item value="560" key="DIALOG_HEIGHT"/>
+		<item value="363" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="OptionalMessageDialog.hide.">
@@ -24,16 +24,21 @@
 		<item value="true" key="showtypes"/>
 	</section>
 	<section name="SourceActionDialog.constructors">
-		<item value="1" key="VisibilityModifier"/>
 		<item value="false" key="Comments"/>
+		<item value="1" key="VisibilityModifier"/>
 		<item value="false" key="SynchronizedModifier"/>
 		<item value="false" key="FinalModifier"/>
 	</section>
 	<section name="DialogBounds_GenerateToStringDialog">
 		<item value="733" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
+<<<<<<< HEAD
 		<item value="357" key="DIALOG_X_ORIGIN"/>
 		<item value="660" key="DIALOG_HEIGHT"/>
+=======
+		<item value="669" key="DIALOG_HEIGHT"/>
+		<item value="357" key="DIALOG_X_ORIGIN"/>
+>>>>>>> dev
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="GenerateConstructorUsingFieldsSelectionDialog">
@@ -44,16 +49,16 @@
 	<section name="SourceActionDialog.methods">
 		<item value="false" key="SkipNull"/>
 		<item value="10" key="LimitValue"/>
-		<item value="1" key="VisibilityModifier"/>
-		<item value="false" key="Comments"/>
-		<item value="0" key="StringStyle"/>
 		<item value="0" key="ToStringTemplateSelected"/>
+		<item value="0" key="StringStyle"/>
+		<item value="false" key="Comments"/>
+		<item value="1" key="VisibilityModifier"/>
 		<item value="false" key="LimitElements"/>
 		<item value="false" key="InstanceOf"/>
 		<item value="false" key="SynchronizedModifier"/>
 		<item value="false" key="Blocks"/>
-		<item value="false" key="FinalModifier"/>
 		<item value="true" key="IgnoreDefault"/>
+		<item value="false" key="FinalModifier"/>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>
@@ -61,8 +66,13 @@
 	<section name="DialogBounds_AddUnimplementedConstructorsDialog">
 		<item value="673" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
+<<<<<<< HEAD
 		<item value="357" key="DIALOG_X_ORIGIN"/>
 		<item value="597" key="DIALOG_HEIGHT"/>
+=======
+		<item value="565" key="DIALOG_HEIGHT"/>
+		<item value="357" key="DIALOG_X_ORIGIN"/>
+>>>>>>> dev
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
@@ -74,14 +84,14 @@
 	</section>
 	<section name="completion_proposal_size">
 	</section>
-	<section name="JavaElementSearchActions">
-	</section>
 	<section name="DialogBounds_AddDelegateMethodsDialog">
 		<item value="670" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
-		<item value="348" key="DIALOG_X_ORIGIN"/>
 		<item value="616" key="DIALOG_HEIGHT"/>
+		<item value="348" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="JavaElementSearchActions">
 	</section>
 	<section name="AddUnimplementedConstructorsDialog">
 		<item value="false" key="OmitCallToSuper"/>
@@ -89,8 +99,13 @@
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
 		<item value="673" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
+<<<<<<< HEAD
 		<item value="357" key="DIALOG_X_ORIGIN"/>
 		<item value="632" key="DIALOG_HEIGHT"/>
+=======
+		<item value="686" key="DIALOG_HEIGHT"/>
+		<item value="357" key="DIALOG_X_ORIGIN"/>
+>>>>>>> dev
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="NewClassWizardPage">
@@ -111,15 +126,25 @@
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
 		<item value="633" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
+<<<<<<< HEAD
 		<item value="357" key="DIALOG_X_ORIGIN"/>
 		<item value="648" key="DIALOG_HEIGHT"/>
+=======
+		<item value="644" key="DIALOG_HEIGHT"/>
+		<item value="357" key="DIALOG_X_ORIGIN"/>
+>>>>>>> dev
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="DialogBounds_GenerateHashCodeEqualsDialog">
 		<item value="653" key="DIALOG_WIDTH"/>
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
+<<<<<<< HEAD
 		<item value="357" key="DIALOG_X_ORIGIN"/>
 		<item value="640" key="DIALOG_HEIGHT"/>
+=======
+		<item value="669" key="DIALOG_HEIGHT"/>
+		<item value="357" key="DIALOG_X_ORIGIN"/>
+>>>>>>> dev
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>
